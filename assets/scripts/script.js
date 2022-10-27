@@ -7,7 +7,7 @@ document.querySelector('.btn').addEventListener('click', function(){
 function display_poems(poems)
 {
     for (let i = 0; i < poems.length; ++i)
-        document.querySelector('.poems').appendChild(get_poem(poems[i]));
+        document.querySelector('.poems').prepend(get_poem(poems[i]));
 }
 
 function get_poem(p)

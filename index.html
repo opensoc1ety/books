@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>API calls for books</title>
-    <script src="assets/scripts/script.js" defer></script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="assets/styles/styles.css">
-</head>
-<body>
-   <button class="btn px-4 py-2 bg-[#444] hover:bg-[#555] mt-2 ml-2">Get Poems</button> 
-   <section class="poems">
-   </section>
-   <p class="copyright">&copy; 2022 LockedSociety</p>
-</body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Search books</title>
+        <script src="assets/scripts/script.js" defer></script>
+        <link rel="stylesheet" href="assets/styles/styles.css" />
+    </head>
+    <body>
+        <div class="query_container">
+            <input type="text" class="query" autofocus/>
+            <input type="submit" value="Search" class="query_submit_btn" />
+        </div>
+        <section class="volumes"></section>
+        <p class="copyright">&copy; 2023 Opensociety</p>
+    </body>
 </html>

@@ -1,30 +1,36 @@
-document.querySelector('.btn').addEventListener('click', function(){
-    fetch('https://www.poemist.com/api/v1/randompoems')
-    .then(response => response.json())
-    .then(data => {display_poems(data)})
-})
+const query_input = document.querySelector(".query");
+const submit_button = document.querySelector(".query_submit_btn");
 
-function display_poems(poems)
-{
-    for (let i = 0; i < poems.length; ++i)
-        document.querySelector('.poems').prepend(get_poem(poems[i]));
+submit_button.addEventListener("click", render);
+query_input.addEventListener("")
+
+
+async function render() {
+    const query = query_input.value;
+    query.replaceAll(" ", "+");
+    query_input.value = "";
+    const data = await request_data(query);
+    display_volumes(data);
 }
 
-function get_poem(p)
-{
-    let article = document.createElement("article");
-    article.setAttribute('class', 'poems__poem');
-    let poet = document.createElement("p");
-    poet.setAttribute('class', 'poem__poet')
-    let poem = document.createElement("p");
-    poem.setAttribute('class', 'poem__content')
+async function request_data(query) {
+    const volumes_endpoint = "https://www.googleapis.com/books/v1/volumes?";
+    const max_results = 40;
+
+    const endpoint_URL = `${volumes_endpoint}q=${query}&maxResults=${max_results}`;
+
+    let data = await fetch(endpoint_URL);
+    data = await data.json();
+    return data;
+}
+
+function display_volumes(data) {
+    for (let i = 0; i < data.items.length; ++i)
+        document.querySelector(".volumes").prepend(get_volume(data.items[i]));
+}
+
+function get_volume(p) {
     let title = document.createElement("p");
-    title.setAttribute('class', 'poem__title')
-    poem.innerHTML = p["content"].replaceAll("\n", "<span class=\"linebreak\"></span>");
-    poet.textContent = "By " + p["poet"]["name"];
-    title.textContent = p["title"];
-    article.appendChild(title);
-    article.appendChild(poem);
-    article.appendChild(poet);
-    return article;
+    title.textContent = p.volumeInfo.title;
+    return title;
 }

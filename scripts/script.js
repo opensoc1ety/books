@@ -2,14 +2,16 @@ const query_input = document.querySelector(".query");
 const submit_button = document.querySelector(".query_submit_btn");
 
 submit_button.addEventListener("click", render);
-query_input.addEventListener("")
-
+query_input.addEventListener("keydown", (e) => {
+    if (e.key === "Enter") render();
+});
 
 async function render() {
     const query = query_input.value;
     query.replaceAll(" ", "+");
     query_input.value = "";
     const data = await request_data(query);
+    console.log(data);
     display_volumes(data);
 }
 
@@ -29,8 +31,13 @@ function display_volumes(data) {
         document.querySelector(".volumes").prepend(get_volume(data.items[i]));
 }
 
-function get_volume(p) {
-    let title = document.createElement("p");
-    title.textContent = p.volumeInfo.title;
-    return title;
+function get_volume(volume) {
+    const title = document.createElement("p");
+    const author = "By " + volume.volumeInfo.authors.toString();
+    title.textContent = volume.volumeInfo.title;
+    const container = document.createElement("div");
+    container.classList.add("mb-[20px]")
+    container.append(title);
+    container.append(author);
+    return container;
 }

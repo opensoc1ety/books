@@ -2,8 +2,6 @@ const query_input = document.querySelector(".query");
 const submit_button = document.querySelector(".query_submit_btn");
 
 submit_button.addEventListener("click", render);
-// query_input.addEventListener("")
-
 
 async function render() {
     const query = query_input.value;

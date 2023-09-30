@@ -582,6 +582,40 @@ html {
   --tw-backdrop-sepia:  ;
 }
 
+.container {
+  width: 100%;
+}
+
+@media (min-width: 640px) {
+  .container {
+    max-width: 640px;
+  }
+}
+
+@media (min-width: 768px) {
+  .container {
+    max-width: 768px;
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    max-width: 1024px;
+  }
+}
+
+@media (min-width: 1280px) {
+  .container {
+    max-width: 1280px;
+  }
+}
+
+@media (min-width: 1536px) {
+  .container {
+    max-width: 1536px;
+  }
+}
+
 .avatar.placeholder > div {
   display: flex;
   align-items: center;
@@ -1114,8 +1148,12 @@ html {
   border-bottom-right-radius: var(--rounded-btn, 0.5rem);
 }
 
-.ml-\[20px\] {
-  margin-left: 20px;
+.mb-\[20px\] {
+  margin-bottom: 20px;
+}
+
+.ml-\[10px\] {
+  margin-left: 10px;
 }
 
 .ml-auto {
@@ -1128,10 +1166,6 @@ html {
 
 .mt-auto {
   margin-top: auto;
-}
-
-.ml-\[10px\] {
-  margin-left: 10px;
 }
 
 .flex {

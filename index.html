@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-theme="lemonade">
     <head>
         <meta charset="UTF-8" />
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -8,12 +8,22 @@
         <script src="./scripts/script.js" defer></script>
         <link rel="stylesheet" href="./styles/main.css" />
     </head>
-    <body>
-        <div class="query_container">
-            <input type="text" class="query" autofocus/>
-            <input type="submit" value="Search" class="query_submit_btn" />
+    <body class="max-w-[900px] ml-auto mr-auto min-h-[100dvh] flex flex-col">
+        <div class="query_container flex justify-between p-[10px]">
+            <input
+                placeholder="Graph theory"
+                type="text"
+                class="query input input-primary input-bordered w-full"
+                autofocus />
+            <input
+                type="submit"
+                value="Search"
+                class="query_submit_btn btn btn-primary ml-[10px]" />
         </div>
-        <section class="volumes"></section>
-        <p class="copyright">&copy; 2023 Opensociety</p>
+        <section class="volumes p-[10px]">
+        </section>
+        <footer class="footer mt-auto bg-base-200 p-[10px]">
+            <p class="copyright">&copy; 2023 Opensociety</p>
+        </footer>
     </body>
 </html>

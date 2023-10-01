@@ -40,7 +40,7 @@ function get_volume(volume) {
         class: "card-body",
     });
 
-    const image_link = volume.volumeInfo.imageLinks.thumbnail || "https://picsum.photos/id/24/200/300";
+    const image_link = volume.volumeInfo.imageLinks ? volume.volumeInfo.imageLinks.thumbnail : "https://picsum.photos/id/24/120/200";
     const image = create_element("img", [], {
         src: image_link
     });

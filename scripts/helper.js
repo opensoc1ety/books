@@ -39,8 +39,10 @@ function get_volume(volume) {
     const body = create_element("div", [title, author, description], {
         class: "card-body",
     });
+
+    const image_link = volume.volumeInfo.imageLinks.thumbnail || "https://picsum.photos/id/24/200/300";
     const image = create_element("img", [], {
-        src: volume.volumeInfo.imageLinks.thumbnail,
+        src: image_link
     });
     const figure = create_element("figure", [image], {
         class: "min-w-[100px]",

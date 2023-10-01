@@ -1,6 +1,9 @@
 import { render } from "./helper.js";
 
 const url = new URL(document.URL);
-const query = new URLSearchParams(url.search);
+const params = new URLSearchParams(url.search);
+const query = params.get("q");
 
-await render(query);
+document.querySelector(".query").value = query;
+
+await render(params);

@@ -1,11 +1,12 @@
 import { create_element } from "./create_element.js";
 
 async function render(query) {
+    console.log(query)
     document.querySelector(".spinner").classList.toggle("hidden");
     const data = await request_data(query);
     document.querySelector(".spinner").classList.toggle("hidden");
-    console.log(data);
     display_volumes(data);
+    return data;
 }
 
 async function request_data(query) {
@@ -13,15 +14,24 @@ async function request_data(query) {
     const max_results = 40;
     const endpoint_URL =
         volumes_endpoint + `${query}&maxResults=${max_results}`;
+    console.log(String(query), endpoint_URL)
 
     let data = await fetch(endpoint_URL);
     data = await data.json();
+    console.log(data)
     return data;
 }
 
 function display_volumes(data) {
+    document.querySelector(".volumes").textContent = "";
+    if (!data.items) {
+        document.querySelector(".volumes").prepend(
+            create_element("p", ["No books found."], {})
+        );
+        return;
+    }
     for (let i = 0; i < data.items.length; ++i)
-        document.querySelector(".volumes").prepend(get_volume(data.items[i]));
+        document.querySelector(".volumes").appendChild(get_volume(data.items[i]));
 }
 
 function get_volume(volume) {
@@ -55,4 +65,4 @@ function get_volume(volume) {
     return container;
 }
 
-export { render };
+export { render, display_volumes };

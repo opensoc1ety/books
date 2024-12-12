@@ -1,31 +1,48 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="lemonade">
-    <head>
-        <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>Search books</title>
-        <script src="./scripts/script.js" defer></script>
-        <link rel="stylesheet" href="./styles/main.css" />
-    </head>
-    <body class="max-w-[900px] ml-auto mr-auto min-h-[100dvh] flex flex-col">
-        <div class="query_container">
-            <form action="search.html" class="form flex justify-between p-[10px]">
-                <input
-                    placeholder="Graph theory"
-                    type="text"
-                    name="q"
-                    class="query input input-primary input-bordered w-full"
-                    autofocus />
-                <input
-                    type="submit"
-                    value="Search"
-                    class="query_submit_btn btn btn-primary ml-[10px]" />
-            </form>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Search books</title>
+    <script src="./scripts/script.js" defer></script>
+    <script src="./scripts/search.js" type="module" defer></script>
+    <link rel="stylesheet" href="./styles/main.css" />
+</head>
+
+<body class="min-h-[100dvh] flex flex-col">
+    <header class="p-3">
+        <p class="text-2xl font-bold text-blue-600">BookFinder</p>
+        <div class="max-w-[900px] mx-auto landing my-10 mb-5 flex flex-col gap-3 md:gap-5">
+                <h1 class="text-6xl">
+                    Discover Your Next Great Read in an Instant
+                </h1>
+                <p class="mt-4 max-w-[500px]">
+
+                    Unlock the world of books at your fingertips! Introducing BookFinder, a lightning-fast book search
+                    engine powered by Google Books API. Seamlessly search for books of your choice.
+                </p>
+                <button class="w-[max-content] mt-4 bg-blue-600 py-3 px-4 rounded-lg font-bold text-white focustoform hover:bg-blue-700 hover:cursor-pointer" type="button">Search
+                    Your Next Book Now</button>
         </div>
-        <section class="volumes p-[10px]"></section>
-        <footer class="footer mt-auto bg-base-200 p-[10px]">
-            <p class="copyright">&copy; 2023 Opensociety</p>
-        </footer>
-    </body>
+    </header>
+    <div class="p-3">
+    <div class="w-[100%] max-w-[900px] mx-auto query_container">
+        <form id="booksearchform" action="/" class="form flex justify-between gap-3">
+            <input placeholder="Graph theory" type="text" name="q"
+                class="scroll-mt-3 query border-gray-400 query border-2 rounded-lg w-full px-3" />
+            <input type="submit" value="Search" class="query_submit_btn text-bold text-white rounded-lg px-4 py-[10px] bg-blue-600 hover:bg-blue-700 hover:cursor-pointer" />
+        </form>
+    </div>
+</div>
+    <section class="max-w-[900px] mx-auto p-3">
+        <svg class="text-gray-400 hidden spinner animate-spin w-[50px] h-[50px] mx-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path fill="none" d="M0 0h24v24H0z"></path><path d="M10.9999 2.04938L11 4.06188C7.05371 4.55396 4 7.92036 4 12C4 16.4183 7.58172 20 12 20C13.8487 20 15.5509 19.3729 16.9055 18.3199L18.3289 19.7428C16.605 21.1536 14.4014 22 12 22C6.47715 22 2 17.5228 2 12C2 6.81468 5.94662 2.55115 10.9999 2.04938ZM21.9506 13.0001C21.7509 15.0111 20.9555 16.8468 19.7433 18.3283L18.3199 16.9055C19.1801 15.799 19.756 14.4606 19.9381 12.9999L21.9506 13.0001ZM13.0011 2.04948C17.725 2.51902 21.4815 6.27589 21.9506 10.9999L19.9381 11C19.4869 7.38162 16.6192 4.51364 13.001 4.062L13.0011 2.04948Z"></path></svg>
+        <div class="volumes"></div>
+    </section>
+    <footer class="mt-auto bg-base-200 p-[10px]">
+        <p class="text-xs copyright">&copy; <span class="date">2023</span> Opensociety</p>
+    </footer>
+</body>
+
 </html>

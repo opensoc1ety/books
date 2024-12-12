@@ -6,4 +6,5 @@ const query = params.get("q");
 
 document.querySelector(".query").value = query;
 
-await render(params);
+if (query)
+    await render(params);

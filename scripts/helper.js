@@ -1,7 +1,9 @@
 import { create_element } from "./create_element.js";
 
 async function render(query) {
+    document.querySelector(".spinner").classList.toggle("hidden");
     const data = await request_data(query);
+    document.querySelector(".spinner").classList.toggle("hidden");
     console.log(data);
     display_volumes(data);
 }
@@ -14,7 +16,6 @@ async function request_data(query) {
 
     let data = await fetch(endpoint_URL);
     data = await data.json();
-    console.log(data);
     return data;
 }
 
